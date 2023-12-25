@@ -1,20 +1,5 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-});
-
-export const metadata: Metadata = {
-  title: "Evently",
-  description: "site is created by GMK",
-  icons: {
-    icon: "/assets/images/logo.svg",
-  },
-};
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
 export default function RootLayout({
   children,
@@ -22,8 +7,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <div>
+      <Header />
       <body>{children}</body>
-    </html>
+      <Footer />
+    </div>
   );
 }
