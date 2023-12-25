@@ -2,6 +2,8 @@ import Link from "next/link";
 import React from "react";
 import SiteLOGO from "@/public/assets/images/logo.svg";
 import Image from "next/image";
+import { SignedOut } from "@clerk/nextjs";
+import { Button } from "../ui/button";
 
 const Header = () => {
   return (
@@ -11,7 +13,11 @@ const Header = () => {
           <Image src={SiteLOGO} alt="logo" width={128} height={38} />
         </Link>
         <div className="flex w-32 justify-end gap-3">
-          
+          <SignedOut>
+            <Button asChild className="rounded-full" size="lg">
+              <Link href="/sign-in">Login</Link>
+            </Button>
+          </SignedOut>
         </div>
       </div>
     </header>
