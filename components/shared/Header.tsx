@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import SiteLOGO from "@/public/assets/images/logo.svg";
 import Image from "next/image";
-import { SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 
 const Header = () => {
@@ -13,6 +13,9 @@ const Header = () => {
           <Image src={SiteLOGO} alt="logo" width={128} height={38} />
         </Link>
         <div className="flex w-32 justify-end gap-3">
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">Login</Link>
