@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const EventSchema = new Schema({
   title: { type: String, required: true },
@@ -14,3 +14,7 @@ const EventSchema = new Schema({
   url: { type: String },
   category: { type: Schema.Types.ObjectId, red: "User" },
 });
+
+const Event = models.Event || model("Event", EventSchema);
+
+export default Event;
