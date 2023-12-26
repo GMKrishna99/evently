@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { unique } from "next/dist/build/utils";
 
 const UserSchema = new Schema({
@@ -9,3 +9,7 @@ const UserSchema = new Schema({
   lastname: { type: String, required: true },
   photo: { type: String, required: true },
 });
+
+const User = models.user || model("User", UserSchema);
+
+export default User;
